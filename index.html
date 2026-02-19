@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Kimhong ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Card */
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  width: 340px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 10;
+}
+
+button {
+  padding: 10px 22px;
+  margin: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Falling lilies */
+.lily {
+  position: absolute;
+  top: -10px;
+  font-size: 22px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="main">
+  <p>
+    Hi Kimhong 🌸<br><br>
+    I honestly didn’t expect you to become my girlfriend.<br>
+    It just happened naturally, and somehow you became someone important to me.<br><br>
+
+    Having you in my life feels different — calmer, better, real.<br>
+    I don’t say things just to say them,<br>
+    so when I tell you this, I mean it.<br><br>
+
+    <strong>I love you.</strong><br>
+    Not in a loud way.<br>
+    Not in a rushed way.<br>
+    But in a real way.<br><br>
+
+    I’m grateful it’s you.
+  </p>
+
+  <button onclick="acceptLove()">Yes 💗</button>
+  <button onclick="moveButton()" id="noBtn">No 😢</button>
+</div>
+
+<script>
+function acceptLove() {
+  document.getElementById("main").innerHTML = `
+    <h1>Thank you ❤️</h1>
+    <p>I promise I’ll treat you right, Kimhong 🌸</p>
+  `;
+}
+
+function moveButton() {
+  const btn = document.getElementById("noBtn");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * 80 + "%";
+  btn.style.left = Math.random() * 80 + "%";
+}
+
+/* Subtle falling lilies */
+function createLily() {
+  const lily = document.createElement("div");
+  lily.classList.add("lily");
+  lily.innerHTML = "🌸";
+  lily.style.left = Math.random() * 100 + "vw";
+  lily.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(lily);
+
+  setTimeout(() => {
+    lily.remove();
+  }, 10000);
+}
+
+setInterval(createLily, 800);
+</script>
+
+</body>
+</html>
